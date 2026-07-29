@@ -28,9 +28,13 @@ import { TMP_GHOST } from "../TMP/TMP_Ghost.js";
 
     const hub = HUB_CORE(nc, pq, tmp);
     const ion = ION_CORE(hub);
+    const dash = ION_DASHBOARD(ion);
 
-    document.getElementById("ion").innerText =
-        JSON.stringify(ION_DASHBOARD(ion), null, 2);
+    document.getElementById("pulse").innerText = dash.pulse;
+    document.getElementById("warp").innerText = dash.warp;
+    document.getElementById("curvature").innerText = dash.curvature;
+    document.getElementById("charge").innerText = dash.charge;
+    document.getElementById("state").innerText = dash.state;
 
 })();
 </script>
@@ -39,17 +43,31 @@ import { TMP_GHOST } from "../TMP/TMP_Ghost.js";
 
 <body>
 
-    <div class="block">
-    <div class="title">ION‑Pulse (Warp + Curvature)</div>
-    <pre id="ion"></pre>
-</div>
-
-    
 <h1>ION – Pulse · iki1uc</h1>
 
 <div class="block">
-    <div class="title">ION‑Pulse</div>
-    <pre id="ion"></pre>
+    <div class="title">Pulse</div>
+    <pre id="pulse"></pre>
+</div>
+
+<div class="block">
+    <div class="title">Warp (Lichtgeschwindigkeitspunkte)</div>
+    <pre id="warp"></pre>
+</div>
+
+<div class="block">
+    <div class="title">Curvature (Raumkrümmung)</div>
+    <pre id="curvature"></pre>
+</div>
+
+<div class="block">
+    <div class="title">Charge (Hyper‑Charge)</div>
+    <pre id="charge"></pre>
+</div>
+
+<div class="block">
+    <div class="title">State (Pulse‑Modus)</div>
+    <pre id="state"></pre>
 </div>
 
 </body>
