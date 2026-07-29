@@ -1,15 +1,42 @@
-<script src="IDkoop.js"></script>
-<script src="IDneutral.js"></script>
-<script src="IDpook.js"></script>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>ION – Identität · iki1uc</title>
 
-<script>
-function showID(mode) {
-    const map = {
-        koop: ID_KOOP,
-        neutral: ID_NEUTRAL,
-        pook: ID_POOK
-    };
-    const id = map[mode];
-    document.getElementById("id-info").innerText = id.info();
-}
+<style>
+body { background:#000; color:#0f0; font-family:monospace; padding:40px; }
+pre { background:#111; padding:20px; border-left:3px solid #6cf; }
+</style>
+
+<script type="module">
+import { ION_CORE } from "./ion.core.js";
+import { NC_QUANTUM } from "../NC/NC_Quantum.js";
+import { PQ_HYPER } from "../PQ/PQ_Hyper.js";
+import { TMP_GHOST } from "../TMP/TMP_Ghost.js";
+import { HUB_CORE } from "../HUB/HUB.core.js";
+
+(async function(){
+
+    const nc = NC_QUANTUM();
+    const pq = PQ_HYPER(nc);
+    const tmp = TMP_GHOST(pq);
+
+    const hub = HUB_CORE(nc, pq, tmp);
+    const ion = ION_CORE(hub);
+
+    document.getElementById("id").innerText =
+        JSON.stringify(ion, null, 2);
+
+})();
 </script>
+
+</head>
+
+<body>
+
+<h1>ION – Identität · iki1uc</h1>
+<pre id="id"></pre>
+
+</body>
+</html>
